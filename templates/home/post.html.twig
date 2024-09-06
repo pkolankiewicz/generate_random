@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        .post-container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .post-date {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .post-body {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="post-container">
+    <div class="post-title">{{ post.title }}</div>
+    <div class="post-date">Posted on: {{ post.created_at|date('Y-m-d H:i') }}</div>
+    <div class="post-body">{{ post.body }}</div>
+</div>
+
+</body>
+</html>

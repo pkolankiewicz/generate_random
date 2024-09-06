@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .post {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .post-title a {
+            text-decoration: none;
+            color: #333;
+        }
+        .post-title a:hover {
+            color: #007BFF;
+        }
+        .post-date {
+            color: #888;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>All Posts</h1>
+
+{% if posts is not empty %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="post-title">
+                <a href="{{ path('app_post_show', {id: post.id}) }}">{{ post.title }}</a>
+            </div>
+            <div class="post-date">Posted on: {{ post.created_at|date('Y-m-d H:i') }}</div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts found.</p>
+{% endif %}
+
+</body>
+</html>
